@@ -48,7 +48,7 @@ def get_artifacts() -> Tuple[Dict, StandardScaler, XGBClassifier]:
 
 # write a function that makes prediction
 
-def predict_diabetes(data: Dict) -> float:
+def predict_Outcome(data: Dict) -> float:
     final_data = {column:[value] for column, value in data.items()}
     logger.info(f"data: {final_data}")
     final_data = pd.DataFrame(final_data)
@@ -68,12 +68,13 @@ def predict_diabetes(data: Dict) -> float:
 if __name__ == "__main__":
     data = {
         
-        "age": 45,
+        "Pregnancy": 2,
+        "glucose": 110,
+        "BloodPressure": 92,
+        "SkinThickness": 23,
+        "Insulin": 94,
         "BMI": 30.5,
-        "diabetes": "yes",
-        "glucose": "yes",
-        "BloodPressure": "yes",
-        "Insulin": "Normal",
-        "Pregnancy": "yes"
+        "DiabetesPedigreeFunction": "0.627",
+        "Age": 45
     }
-    print(predict_diabetes(data=data))
+    print(predict_Outcome(data=data))

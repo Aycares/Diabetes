@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, status
 from xgboost import XGBClassifier
 import xgboost as xgb
-from utils import predict_diabetes
+from utils import predict_Outcome
 from schema import RootResponse,ModelRequest,ModelResponse
 import logfire
 from dotenv import load_dotenv
@@ -27,16 +27,16 @@ def root():
     return RootResponse(message="We are live!")
 
 # create the prediction endpoint
-@app.post(path="/predict/", tags=["diabetes"], response_model=ModelResponse)
-def get_diabetes(payload: ModelRequest):
+@app.post(path="/predict/", tags=["Outcome"], response_model=ModelResponse)
+def get_Outcome(payload: ModelRequest):
     """This is the endpoint for the model prediction."""
     try:
         data = payload.model_dump()
-        diabetes = predict_diabetes(data)
-        logfire.info(f"predicted_diabetes: {diabetes}, payload: {data}")
+        Outcome = predict_Outcome(data)
+        logfire.info(f"predicted_Outcome: {Outcome}, payload: {data}")
         
         return ModelResponse(
-            predicted_diabetes=diabetes
+            predicted_Outcome=Outcome
         )
     except Exception as err:
         logfire.error(f"An error occured. Details: {err}")
@@ -45,4 +45,4 @@ def get_diabetes(payload: ModelRequest):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app="main:app", host="localhost", port=8000, reload=True)
+    uvicorn.run(app="main:app", host="localhost", port=8080, reload=True)

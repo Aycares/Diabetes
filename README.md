@@ -1,7 +1,7 @@
 
 **Diabetes Risk Prediction with ZenML and FastAPI**
 
-This project is focused on predicting the risk of diabetes in patients using machine learning techniques. It uses the PIMA Indian Diabetes Dataset and leverages ZenML to build a reproducible ML pipeline, FastAPI to serve the model as an API, and Logfire for logging and monitoring.
+This project is focused on predicting the risk of diabetes in patients using machine learning techniques. It uses the PIMA Indian Diabetes Dataset and leverages ZenML to build a reproducible ML pipeline, FastAPI to serve the model as an API, and Logfire for logging and monitoring. 0 outcome predict no diabetes while 1 outcome predict diabetes in a patient.
 
 **Project Overview**
 The pipeline performs the following steps:
@@ -30,6 +30,6 @@ Logfire is integrated to capture logs and track predictions or errors. To activa
 
 
 **Author**
-This project was developed by [Adeleye Ayokunle Temitope] to demonstrate end-to-end deployment of a machine learning model using ZenML and FastAPI for a healthcare purpose
+This project was developed by [Adeleye Ayokunle Temitope] to demonstrate end-to-end deployment of a machine learning model using ZenML and FastAPI for a healthcare purpose in predicting if a patient has diabetes or not.
 
 

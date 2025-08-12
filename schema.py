@@ -14,33 +14,37 @@ class ModelResponse(BaseModel):
     """
     creates a response object for the model prediction.
     """
-    predicted_diabetes : float = Field(..., 
-                                      description= "The model's predicted diabetes",
-                                      gt= 0, examples=[55.3, 44.2])
+    predicted_Outcome : int = Field(..., 
+                                      description= "Predicted outcome: 0 = No diabetes, 1 = Diabetes",
+                                      ge=0, le=1, example=[0,1])
     
 
-    # Age pregnancies  glucose  BloodPrerssure  insulin BMI Diabetes
+    # Age pregnancies  glucose  BloodPrerssure  insulin BMI DiabetesPedigreeFunction SkinThickness
 # create the model request object
 class ModelRequest(BaseModel):
     """
     creates the request object for the model prediction
     """
-    age: int = Field(..., description="Age of the client",
-                     gt=5, lt=100, examples=[35])
+    Pregnancies: int = Field(...,
+                             description="Number of times the client has been pregnant.",
+                             example=2)
+    Glucose: int = Field(..., description="glucose concentration in mg/dL",
+                                          example=110)
+    BloodPressure: int = Field(...,  description="Diastolic blood pressure in mm Hg",
+                                                example=92)
+    SkinThickness: int = Field(...,
+                               description="Triceps skinfold thickness in millimeters, used as a measure of body fat.",
+                               example=23)
+    Insulin: int = Field(..., description="serum insulin in mL",
+                              example=94)
     BMI: float = Field(..., description="bmi of the client",
-                     gt=5, lt=100, examples=[35.4])  
+                     gt=5, lt=100, example=35.4)  
+    DiabetesPedigreeFunction: float = Field(...,
+                                            description="A continuous measure of the patient's genetic predisposition to diabetes.",
+                                            example=0.627)
+    Age: int = Field(..., description="Age of the client",
+                     gt=5, lt=100, example=45)
     
-    Diabetes: Literal['No','Yes'] = Field(..., description="indicates if the client has diabetes (No) or (Yes)",
-                                           examples=["No","Yes"])
-    Glucose: Literal['No', 'Yes'] = Field(..., 
-                                          description="Indicates if the client's glucose level is normal (No) or high (Yes)",
-                                          examples=["No", "Yes"])
-    BloodPressure: Literal['Yes', 'No'] = Field(..., 
-                                                description="Indicates if the client has high blood pressure (Yes) or (No)",
-                                                examples=["Yes", "No"])
-    Insulin: Literal['Normal', 'High', 'Low'] = Field(..., 
-                                                      description="Indicates the insulin level status of the client",
-                                                      examples=["Normal", "High"])
-    Pregnancies: Literal['Yes', 'No'] = Field(..., 
-                                              description="Indicates whether the client has ever been pregnant (Yes or No)",
-                                              examples=["Yes", "No"])
+    
+    
+    
