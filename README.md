@@ -8,9 +8,7 @@ The pipeline performs the following steps:
 
 Loads and preprocesses the diabetes dataset
 
-Handles class imbalance using SMOTE
-
-Trains a Random Forest Classifier
+Trains XGBoost
 
 Evaluates the model based on performance metrics
 
@@ -30,6 +28,6 @@ Logfire is integrated to capture logs and track predictions or errors. To activa
 
 
 **Author**
-This project was developed by [Adeleye Ayokunle Temitope] to demonstrate end-to-end deployment of a machine learning model using ZenML and FastAPI for a healthcare purpose in predicting if a patient has diabetes or not.
+This project was developed by to demonstrate end-to-end deployment of a machine learning model using ZenML and FastAPI for a healthcare purpose in predicting if a patient has diabetes or not.
 
 
